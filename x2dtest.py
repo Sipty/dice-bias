@@ -132,8 +132,9 @@ while True:
             break
         elif(saveTally == "y"):
             saveTally = True
+            filename = ""
             break
-        elif(saveTally == "y"):
+        elif(saveTally == "o"):
             saveTally = True
             break
         else:
@@ -148,16 +149,19 @@ while True:
 while True and saveTally:
     try:
         # Note: Python 2.x users should use raw_input, the equivalent of 3.x's input
-        if( filename == "")
+        if( filename == ""):
             filename = raw_input("filename: ")
         
         
         with open(filename, "wb") as fp:   #Pickling
             pickle.dump(tally, fp)
+        
+        print filename + " saved successfully."
+
         break
 
     except ValueError:
-        print("Invalid dye side. Try again. \n.")
+        print("Invalid filename... or some such. Try again. \n.")
         #better try again... Return to the start of the loop
         continue
 
